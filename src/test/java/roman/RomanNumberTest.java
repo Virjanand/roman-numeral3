@@ -13,6 +13,7 @@ public class RomanNumberTest {
             "2, II",
             "4, IV",
             "5, V",
+            "9, IX",
     })
     void convertArabicToRoman(int arabicNumber, String expectedRomanString) {
         RomanNumber romanNumber = new RomanNumber(arabicNumber);
