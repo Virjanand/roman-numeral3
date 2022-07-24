@@ -10,7 +10,10 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
-        if (isNumberContained(counter, 40)) {
+        if (isNumberContained(counter, 50)) {
+            result += "L";
+            counter -= 50;
+        }if (isNumberContained(counter, 40)) {
             result += "XL";
             counter -= 40;
         }
