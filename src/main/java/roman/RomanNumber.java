@@ -9,8 +9,9 @@ public class RomanNumber {
 
     public String toRoman() {
         String result = "";
-        if (arabicNumber == 1) {
-            result = "I";
+        int counter = arabicNumber;
+        if (counter >= 1) {
+            result = "I".repeat(counter);
         }
         return result;
     }
