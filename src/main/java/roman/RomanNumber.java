@@ -10,6 +10,10 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
+        if (isNumberContained(counter, 9)) {
+            result += "IX";
+            counter -= 9;
+        }
         if (isNumberContained(counter, 5)) {
             result += "V";
             counter -= 5;
