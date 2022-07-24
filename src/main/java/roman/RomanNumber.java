@@ -10,6 +10,10 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
+        if (isNumberContained(counter, 40)) {
+            result += "XL";
+            counter -= 40;
+        }
         int tens = counter / 10;
         if (tens >= 1) {
             result += "X".repeat(tens);
