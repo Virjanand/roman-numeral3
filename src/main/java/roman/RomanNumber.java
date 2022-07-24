@@ -10,7 +10,7 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
-        if (counter == 4) {
+        if (counter / 4 == 1) {
             result += "IV";
             counter -= 4;
         }
