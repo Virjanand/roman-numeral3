@@ -10,6 +10,11 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
+        int thousands = counter / 1000;
+        if (thousands >= 1) {
+            result += "M".repeat(thousands);
+            counter -= thousands * 1000;
+        }
         if (isNumberContained(counter, 900)) {
             result += "CM";
             counter -= 900;
