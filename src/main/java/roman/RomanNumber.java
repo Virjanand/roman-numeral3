@@ -10,6 +10,10 @@ public class RomanNumber {
     public String toRoman() {
         String result = "";
         int counter = arabicNumber;
+        if (isNumberContained(counter, 500)) {
+            result += "D";
+            counter -= 500;
+        }
         if (isNumberContained(counter, 400)) {
             result += "CD";
             counter -= 400;
