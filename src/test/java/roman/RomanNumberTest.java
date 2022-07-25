@@ -21,6 +21,7 @@ public class RomanNumberTest {
             "200, CC",
             "400, CD",
             "500, D",
+            "900, CM",
     })
     void convertArabicToRoman(int arabicNumber, String expectedRomanString) {
         RomanNumber romanNumber = new RomanNumber(arabicNumber);
