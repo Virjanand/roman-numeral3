@@ -2,6 +2,7 @@ package roman;
 
 public class RomanNumber {
     private final int arabicNumber;
+    private int counter;
 
     public RomanNumber(int arabicNumber) {
         this.arabicNumber = arabicNumber;
@@ -9,18 +10,12 @@ public class RomanNumber {
 
     public String toRoman() {
         String result = "";
-        int counter = arabicNumber;
+        counter = arabicNumber;
         int thousands = counter / 1000;
         result += convertMultiples(thousands, "M");
         counter -= thousands * 1000;
-        if (isNumberContained(counter, 900)) {
-            result += "CM";
-            counter -= 900;
-        }
-        if (isNumberContained(counter, 500)) {
-            result += "D";
-            counter -= 500;
-        }
+        result += convertSingleNumber(900, "CM");
+        result += convertSingleNumber(500, "D");
         if (isNumberContained(counter, 400)) {
             result += "CD";
             counter -= 400;
@@ -56,6 +51,15 @@ public class RomanNumber {
             counter -= 4;
         }
         result += convertMultiples(counter, "I");
+        return result;
+    }
+
+    private String convertSingleNumber(int number, String romanString) {
+        String result = "";
+        if (isNumberContained(counter, number)) {
+            result += romanString;
+            counter -= number;
+        }
         return result;
     }
 
