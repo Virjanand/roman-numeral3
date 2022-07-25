@@ -11,10 +11,8 @@ public class RomanNumber {
         String result = "";
         int counter = arabicNumber;
         int thousands = counter / 1000;
-        if (thousands >= 1) {
-            result += "M".repeat(thousands);
-            counter -= thousands * 1000;
-        }
+        result += convertMultiples(thousands, "M");
+        counter -= thousands * 1000;
         if (isNumberContained(counter, 900)) {
             result += "CM";
             counter -= 900;
@@ -28,10 +26,8 @@ public class RomanNumber {
             counter -= 400;
         }
         int hundreds = counter / 100;
-        if (hundreds >= 1) {
-            result += "C".repeat(hundreds);
-            counter -= hundreds * 100;
-        }
+        result += convertMultiples(hundreds, "C");
+        counter -= hundreds * 100;
         if (isNumberContained(counter, 90)) {
             result += "XC";
             counter -= 90;
@@ -45,10 +41,8 @@ public class RomanNumber {
             counter -= 40;
         }
         int tens = counter / 10;
-        if (tens >= 1) {
-            result += "X".repeat(tens);
-            counter -= tens * 10;
-        }
+        result += convertMultiples(tens, "X");
+        counter -= tens * 10;
         if (isNumberContained(counter, 9)) {
             result += "IX";
             counter -= 9;
@@ -61,8 +55,14 @@ public class RomanNumber {
             result += "IV";
             counter -= 4;
         }
-        if (counter >= 1) {
-            result += "I".repeat(counter);
+        result += convertMultiples(counter, "I");
+        return result;
+    }
+
+    private String convertMultiples(int number, String romanString) {
+        String result = "";
+        if (number >= 1) {
+            result = romanString.repeat(number);
         }
         return result;
     }
